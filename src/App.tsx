@@ -20,7 +20,7 @@ type FlightOption = {
 /* ---------------- WORKER AGENTS ---------------- */
 
 // Budget Agent
-function budgetAgent(input: SearchInput): FlightOption[] {
+function budgetAgent(_input: SearchInput): FlightOption[] {
   return [
     {
       id: "B1",
@@ -42,7 +42,7 @@ function budgetAgent(input: SearchInput): FlightOption[] {
 }
 
 // Premium Agent
-function premiumAgent(input: SearchInput): FlightOption[] {
+function premiumAgent(_input: SearchInput): FlightOption[] {
   return [
     {
       id: "P1",
