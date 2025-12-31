@@ -1,3 +1,39 @@
+/* ===== animated background layer ===== */
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color: rgba(255, 255, 255, 0.92);
+  background: #070a12;
+  overflow-x: hidden;
+}
+
+.bgFX {
+  position: fixed;
+  inset: -40%;
+  z-index: -1;
+  background:
+    radial-gradient(700px 400px at 15% 20%, rgba(124,58,237,0.45), transparent 60%),
+    radial-gradient(700px 400px at 80% 25%, rgba(34,197,94,0.25), transparent 60%),
+    radial-gradient(900px 600px at 45% 75%, rgba(59,130,246,0.22), transparent 65%),
+    radial-gradient(700px 500px at 70% 80%, rgba(236,72,153,0.18), transparent 60%);
+  filter: blur(30px);
+  animation: floatBg 14s ease-in-out infinite alternate;
+}
+
+@keyframes floatBg {
+  0%   { transform: translate3d(-2%, -1%, 0) scale(1.02); }
+  100% { transform: translate3d(2%, 1%, 0) scale(1.05); }
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
 .appShell {
   min-height: 100vh;
 }
@@ -8,6 +44,27 @@
   padding: 18px 22px 28px;
 }
 
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 22px 28px;
+}
+
+.card {
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.btn, .btnGhost, .navLink {
+  transition: transform 0.08s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover, .btnGhost:hover, .navLink:hover {
+  transform: translateY(-1px);
+}
 .nav {
   max-width: 1100px;
   margin: 16px auto 0;

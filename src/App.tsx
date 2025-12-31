@@ -10,6 +10,9 @@ import "./App.css";
 export default function App() {
   return (
     <div className="appShell">
+      <div className="bgFX" />
+      <div className="noise" />
+
       <Navbar />
       <div className="page">
         <Routes>
